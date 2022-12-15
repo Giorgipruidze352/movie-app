@@ -7,7 +7,7 @@ const AppRoutes = () => {
       <Routes>
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
-        <Route path="about" element={<Favorites />} />
+        <Route path="favorites" element={<Favorites />} />
       </Routes>
   );
 };

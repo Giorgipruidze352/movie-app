@@ -12,7 +12,7 @@ import {
 import UserContext from "../contexts/User";
 
 const Navigation = () => {
-  const pages = ["Home", "Favorites"];
+  const pages = ["home", "favorites"];
   const navigate = useNavigate();
   const { currentUser, logout } = useContext(UserContext);
   return (
@@ -29,12 +29,15 @@ const Navigation = () => {
         {pages.map((page) => (
           <ListItem disablePadding sx={{ maxWidth: "100px" }} key={page}>
             <ListItemButton onClick={() => navigate(`/${page}`)}>
-              <ListItemText primary={page} sx={{ textAlign: "center" }} />
+              <ListItemText
+                primary={page}
+                sx={{ textAlign: "center", textTransform: "capitalize" }}
+              />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
-      {currentUser ? (
+      {!currentUser ? (
         <Button
           sx={{
             width: "100px",
