@@ -28,7 +28,7 @@ const Navigation = () => {
       <List sx={{ listStyleType: "none", display: "flex" }}>
         {pages.map((page) => (
           <ListItem disablePadding sx={{ maxWidth: "100px" }} key={page}>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate(`/${page}`)}>
               <ListItemText primary={page} sx={{ textAlign: "center" }} />
             </ListItemButton>
           </ListItem>
