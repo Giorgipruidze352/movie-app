@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
 import {
   Box,
   Button,
@@ -7,9 +9,12 @@ import {
   ListItemButton,
   ListItemText,
 } from "@mui/material";
+import UserContext from "../contexts/User";
 
 const Navigation = () => {
   const pages = ["Home", "Favorites"];
+  const navigate = useNavigate();
+  const { currentUser, logout } = useContext(UserContext);
   return (
     <Box
       sx={{
@@ -29,18 +34,35 @@ const Navigation = () => {
           </ListItem>
         ))}
       </List>
-      <Button
-        sx={{
-          width: "100px",
-          padding: "8px 12px",
-          textAlign: "center",
-          color: "white",
-          textTransform: "capitalize",
-          fontSize: "16px"
-        }}
-      >
-        Log In
-      </Button>
+      {currentUser ? (
+        <Button
+          sx={{
+            width: "100px",
+            padding: "8px 12px",
+            textAlign: "center",
+            color: "white",
+            textTransform: "capitalize",
+            fontSize: "16px",
+          }}
+          onClick={() => navigate("/login")}
+        >
+          Log In
+        </Button>
+      ) : (
+        <Button
+          sx={{
+            width: "100px",
+            padding: "8px 12px",
+            textAlign: "center",
+            color: "white",
+            textTransform: "capitalize",
+            fontSize: "16px",
+          }}
+          onClick={() => logout()}
+        >
+          Log Out
+        </Button>
+      )}
     </Box>
   );
 };
