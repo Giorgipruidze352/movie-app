@@ -14,7 +14,7 @@ import UserContext from "../contexts/User";
 const Navigation = () => {
   const pages = ["home", "favorites"];
   const navigate = useNavigate();
-  const { currentUser, logout } = useContext(UserContext);
+  const { currentUser, logoutUser } = useContext(UserContext);
   return (
     <Box
       sx={{
@@ -61,7 +61,7 @@ const Navigation = () => {
             textTransform: "capitalize",
             fontSize: "16px",
           }}
-          onClick={() => logout()}
+          onClick={logoutUser}
         >
           Log Out
         </Button>
