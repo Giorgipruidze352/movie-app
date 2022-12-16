@@ -1,13 +1,16 @@
-import {BrowserRouter as Router } from "react-router-dom"
+import { BrowserRouter as Router } from "react-router-dom";
 import AppRoutes from "./components/AppRoutes";
 import Navigation from "./components/Navigation";
+import { UserProvider } from "./contexts/User";
 
 const App = () => {
   return (
-    <Router>
-      <Navigation />
-      <AppRoutes />
-    </Router>
+    <UserProvider>
+      <Router>
+        <Navigation />
+        <AppRoutes />
+      </Router>
+    </UserProvider>
   );
 };
 
