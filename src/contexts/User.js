@@ -10,6 +10,9 @@ export const UserProvider = ({ children }) => {
     const userExists = users.find((user) => user.email === newUser.email);
     if (!userExists) {
       setUsers([...users, newUser]);
+      alert("Successfully signed up");
+    } else {
+      alert("User already exists");
     }
   };
 
@@ -20,13 +23,14 @@ export const UserProvider = ({ children }) => {
     );
     if (user.length > 0) {
       setCurrentUser(user[0]);
-    }else{
-      alert("User not found")
+    } else {
+      alert("User not found");
     }
   };
 
   const logoutUser = () => {
     setCurrentUser(null);
+    alert("Successfully logged out");
   };
 
   return (
@@ -36,6 +40,6 @@ export const UserProvider = ({ children }) => {
       {children}
     </UserContext.Provider>
   );
-}
+};
 
 export default UserContext;
