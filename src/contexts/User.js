@@ -20,6 +20,8 @@ export const UserProvider = ({ children }) => {
     );
     if (user.length > 0) {
       setCurrentUser(user[0]);
+    }else{
+      alert("User not found")
     }
   };
 
