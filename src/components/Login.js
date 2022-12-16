@@ -5,7 +5,7 @@ import UserContext from "../contexts/User";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { currentUser, loginUser } = useContext(UserContext);
+  const { loginUser } = useContext(UserContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -15,6 +15,7 @@ const Login = () => {
       password: formData.get("password"),
     };
     loginUser(user);
+    navigate("/home");
   };
 
   return (
@@ -31,12 +32,7 @@ const Login = () => {
       <Box
         component="form"
         sx={{ width: "100%" }}
-        onSubmit={(e) => {
-          handleLogin(e);
-          if (currentUser) {
-            navigate("/home");
-          }
-        }}
+        onSubmit={handleLogin}
       >
         <Typography
           variant="h4"
@@ -72,7 +68,9 @@ const Login = () => {
         >
           Log In
         </Button>
-        <Typography sx={{ textAlign: "center" }}>or</Typography>
+        <Typography sx={{ textAlign: "center", color: "#909090" }}>
+          or
+        </Typography>
         <Button
           fullWidth
           variant="outlined"
