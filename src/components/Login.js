@@ -15,7 +15,7 @@ const Login = () => {
       password: formData.get("password"),
     };
     loginUser(user);
-    navigate("/home");
+    navigate("/movies");
   };
 
   return (

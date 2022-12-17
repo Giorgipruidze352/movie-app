@@ -11,9 +11,9 @@ const AppRoutes = () => {
     <MovieProvider>
       <Routes>
         <Route index element={<Home />} />
-        <Route path="home" element={<Home />} />
+        <Route path="movies" element={<Home />} />
         <Route path="favorites" element={<Favorites />} />
-        <Route path="home/:id" element={<MovieDetails />} />
+        <Route path="movies/:id" element={<MovieDetails />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Register />} />
       </Routes>

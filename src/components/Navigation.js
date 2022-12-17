@@ -12,7 +12,7 @@ import {
 import UserContext from "../contexts/User";
 
 const Navigation = () => {
-  const pages = ["home", "favorites"];
+  const pages = ["movies", "favorites"];
   const navigate = useNavigate();
   const { currentUser, logoutUser } = useContext(UserContext);
   return (

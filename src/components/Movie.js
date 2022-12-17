@@ -18,7 +18,7 @@ const Movie = ({ movie }) => {
     <Card sx={{ maxWidth: 800 }}>
       <CardContent>
         <Link
-          to={`/home/${movie.id}`}
+          to={`/movies/${movie.id}`}
           style={{ textDecoration: "none", color: "#1B2330", cursor: "pointer" }}
         >
           <Typography
