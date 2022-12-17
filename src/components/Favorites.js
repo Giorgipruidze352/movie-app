@@ -4,19 +4,14 @@ import { useContext } from "react";
 import MovieContext from "../contexts/Movie";
 
 const Favorites = () => {
-  const { favorites, addToFavorites, removeMovie } = useContext(MovieContext);
+  const { favorites } = useContext(MovieContext);
   return (
     <>
       {favorites.length > 0 ? (
         <Grid container direction="column" sx={{ p: 4 }}>
           {favorites.map((movie) => (
             <Grid key={movie.id} item sx={{ pb: 4 }}>
-              <Movie
-                movie={movie}
-                addToFavorites={addToFavorites}
-                removeMovie={removeMovie}
-                favorites={favorites}
-              />
+              <Movie movie={movie} />
             </Grid>
           ))}
         </Grid>

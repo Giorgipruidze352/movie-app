@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { useContext } from "react";
 import {
   Card,
   CardContent,
@@ -7,23 +9,31 @@ import {
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import DeleteIcon from "@mui/icons-material/Delete";
+import MovieContext from "../contexts/Movie";
 
-const Movie = ({ movie, favorites, addToFavorites, removeMovie }) => {
+const Movie = ({ movie }) => {
+  const { favorites, addToFavorites, removeMovie } = useContext(MovieContext);
   const isFavorite = favorites.find((favMovie) => favMovie.id === movie.id);
+  console.log('movie.id', movie.id)
   return (
     <Card sx={{ maxWidth: 800 }}>
       <CardContent>
-        <Typography
-          gutterBottom
-          variant="h5"
-          component="div"
-          sx={{ display: "flex", flexDirection: "row" }}
+        <Link
+          to={`/home/${movie.id}`}
+          style={{ textDecoration: "none", color: "#1B2330" }}
         >
-          {movie.title}
-          <Typography sx={{ mb: 1.5, pl: 1 }} color="text.secondary">
-            {movie.year}
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            sx={{ display: "flex", flexDirection: "row" }}
+          >
+            {movie.title}
+            <Typography sx={{ mb: 1.5, pl: 1 }} color="text.secondary">
+              {movie.year}
+            </Typography>
           </Typography>
-        </Typography>
+        </Link>
         <Typography sx={{ mb: 1 }} variant="body2" color="text.secondary">
           Genre: {movie.genre}
         </Typography>
@@ -42,7 +52,7 @@ const Movie = ({ movie, favorites, addToFavorites, removeMovie }) => {
           aria-label="Add to Favorites"
           onClick={() => addToFavorites(movie.id)}
         >
-          <FavoriteIcon color={isFavorite ? "secondary" : "default"}/>
+          <FavoriteIcon color={isFavorite ? "secondary" : "default"} />
         </IconButton>
         <IconButton aria-label="Delete" onClick={() => removeMovie(movie.id)}>
           <DeleteIcon color="error" />
