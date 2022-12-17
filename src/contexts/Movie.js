@@ -4,10 +4,10 @@ import data from "../movies.json";
 const MovieContext = createContext();
 
 export function MovieProvider({ children }) {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([...data]);
   const [favorites, setFavorites] = useState([]);
-  const [selectedGenre, setSelectedGenre] = useState("");
   const [filterList, setFilterList] = useState([]);
+  const [selectedGenre, setSelectedGenre] = useState("");
 
   const getOnlyGenres = movies.map((movie) => movie.genre);
   const genres = getOnlyGenres.filter((m, index) => {
@@ -15,9 +15,8 @@ export function MovieProvider({ children }) {
   });
 
   useEffect(() => {
-    setMovies([...data]);
-    setFilterList([...data]);
-  }, []);
+    setFilterList([...movies]);
+  }, [movies]);
 
   const filterByGenre = (genre) => {
     if (genre) {
