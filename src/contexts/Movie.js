@@ -41,6 +41,11 @@ export function MovieProvider({ children }) {
 
   const removeMovie = (id) => {
     const removedMovie = movies.filter((movie) => movie.id !== id);
+    const isFavorite = favorites.find((movie) => movie.id === id);
+    if (isFavorite) {
+      const removedFromFavs = favorites.filter((movie) => movie.id !== id);
+      setFavorites(removedFromFavs);
+    }
     setMovies(removedMovie);
   };
 
