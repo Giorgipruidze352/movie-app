@@ -14,13 +14,12 @@ import MovieContext from "../contexts/Movie";
 const Movie = ({ movie }) => {
   const { favorites, addToFavorites, removeMovie } = useContext(MovieContext);
   const isFavorite = favorites.find((favMovie) => favMovie.id === movie.id);
-  console.log('movie.id', movie.id)
   return (
     <Card sx={{ maxWidth: 800 }}>
       <CardContent>
         <Link
           to={`/home/${movie.id}`}
-          style={{ textDecoration: "none", color: "#1B2330" }}
+          style={{ textDecoration: "none", color: "#1B2330", cursor: "pointer" }}
         >
           <Typography
             gutterBottom
