@@ -1,6 +1,13 @@
+import Filter from "./Filter";
+import MovieList from "./MovieList";
 
 const Home = () => {
-  return <h1>Home</h1>
-}
+  return (
+    <>
+      <Filter />
+      <MovieList />
+    </>
+  );
+};
 
 export default Home;
