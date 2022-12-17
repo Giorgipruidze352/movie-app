@@ -47,6 +47,7 @@ export function MovieProvider({ children }) {
   return (
     <MovieContext.Provider
       value={{
+        movies,
         filterList,
         genres,
         selectedGenre,
