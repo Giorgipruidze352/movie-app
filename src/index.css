@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.pagination {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem;
+  font-size: 1rem;
+}
+
+.pagination .page-num {
+  padding: 4px 11px;
+  margin: 0 5px;
+  border-radius: 50%;
+  border: 1px solid black;
+  font-weight: 400;
+  color: #1b2330;
+  cursor: pointer;
+}
+
+.pagination .page-num:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.pagination .page-active {
+  background-color: #000;
+  color: #fff;
+}
+.next {
+  padding-left: 2px;
+}
+.prev, .next {
+  cursor: pointer;
+}
