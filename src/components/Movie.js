@@ -8,7 +8,8 @@ import {
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const Movie = ({ movie }) => {
+const Movie = ({ movie, favorites, addToFavorites, removeMovie }) => {
+  const isFavorite = favorites.find((favMovie) => favMovie.id === movie.id);
   return (
     <Card sx={{ maxWidth: 800 }}>
       <CardContent>
@@ -37,11 +38,14 @@ const Movie = ({ movie }) => {
         </Typography>
       </CardContent>
       <CardActions sx={{ justifyContent: "flex-end" }}>
-        <IconButton aria-label="Add to Favorites">
-          <FavoriteIcon />
+        <IconButton
+          aria-label="Add to Favorites"
+          onClick={() => addToFavorites(movie.id)}
+        >
+          <FavoriteIcon color={isFavorite ? "secondary" : "default"}/>
         </IconButton>
-        <IconButton aria-label="Delete">
-          <DeleteIcon sx={{ color: "red" }} />
+        <IconButton aria-label="Delete" onClick={() => removeMovie(movie.id)}>
+          <DeleteIcon color="error" />
         </IconButton>
       </CardActions>
     </Card>
