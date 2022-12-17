@@ -29,7 +29,7 @@ const MovieList = () => {
     <>
       {showedMovies.length > 0 ? (
         <>
-          <Grid container direction="column" sx={{ p: 4, pt: 0 }}>
+          <Grid container direction="column" sx={{ p: 4, pt: 0, pb: 0 }}>
             {showedMovies.map((movie) => (
               <Grid key={movie.id} item sx={{ pb: 4 }}>
                 <Movie movie={movie} />
